@@ -10,46 +10,47 @@
 <html>
 <head>
     <title>memberList</title>
-    <style>
-        table, tr, td, th{
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 13px;
-        }
-    </style>
+    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+<%--    <style>--%>
+<%--        table, tr, td, th{--%>
+<%--            border: 1px solid black;--%>
+<%--            border-collapse: collapse;--%>
+<%--            padding: 13px;--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
-<table>
-    <tr>
-        <th>번호</th>
-        <th>이메일</th>
-        <th>비밀번호</th>
-        <th>이름</th>
-        <th>나이</th>
-        <th>핸드폰번호</th>
-<%--        <th>삭제하기</th>--%>
-    </tr>
-    <c:forEach items="${memberList}" var="member">
+<div class="container">
+    <table class="table table-striped table-hover">
         <tr>
-            <td>${member.id}</td>
-            <td>
-                <a href="member?id=${member.id}"> ${member.memberEmail}</a>
-            </td>
-            <td>${member.memberPassword}</td>
-            <td>${member.memberName}</td>
-            <td>${member.memberAge}</td>
-            <td>${member.memberMobile}</td>
-<%--            <td><a href="/delete">삭제</a></td>--%>
+            <th>번호</th>
+            <th>이메일</th>
+            <th>비밀번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>핸드폰번호</th>
+            <th>상세조회</th>
+    <%--        <th>삭제하기</th>--%>
         </tr>
-    </c:forEach>
-<%--    <form action="/delete">--%>
-<%--        <input type="text" name="${member.id}">--%>
-<%--        <input type="submit" value="삭제하기">--%>
-<%--    </form>--%>
-</table>
-<a href="/">홈으로 이동</a>
-<%--<form action="/delete">--%>
-<%--    <input type="text" name="" id=""> --%>
-<%--</form>--%>
+        <c:forEach items="${memberList}" var="member">
+            <tr>
+                <td>${member.id}</td>
+                <td>
+                    <a href="member?id=${member.id}"> ${member.memberEmail}</a>
+                </td>
+                <td>${member.memberPassword}</td>
+                <td>${member.memberName}</td>
+                <td>${member.memberAge}</td>
+                <td>${member.memberMobile}</td>
+                <td>
+                    <a href="/member?id=${member.id}">상세조회</a>
+                </td>
+    <%--            <td><a href="/delete">삭제</a></td>--%>
+            </tr>
+        </c:forEach>
+        <a href="/">홈으로 이동</a>
+    </table>
+</div>
+
 </body>
 </html>
