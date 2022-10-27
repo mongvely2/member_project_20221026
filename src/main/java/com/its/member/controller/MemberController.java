@@ -30,7 +30,7 @@ public class MemberController {
         if (saveResult) {
             return "memberLogin";
         } else {
-            return "saveFail";
+            return "index";
         }
     }
 
