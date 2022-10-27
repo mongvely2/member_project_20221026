@@ -72,12 +72,30 @@ public class MemberController {
     }
 
 //    @GetMapping("/delete")
-//    public String delete(@RequestParam("delete") Long delete, Model model) {
-//        MemberDTO deleteResult = memberService.delete(delete);
+//    public String delete(@RequestParam("delete") int delete, Model model) {
+//        int deleteResult = memberService.delete(delete);
+//        System.out.println("delete = " + delete + ", model = " + model);
 //        model.addAttribute("result", deleteResult);
 //        return "memberList";
 //
 //    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id, Model model) {
+        memberService.delete(id);
+//        1. 삭제 후 목록을 DB에서 가져오고 memberList.jsp로 간다.
+//        List<MemberDTO> memberDTOList = memberService.memberList();
+//        model.addAttribute("memberList", memberDTOList);
+//        return "memberList";
+
+//        2.redirect 방식을 이용하여 /members("memberList(findAll) 메서드 불러오기") 주소 요청
+        return "redirect:/members";
+
+
+
+    }
+
+
 
 
 

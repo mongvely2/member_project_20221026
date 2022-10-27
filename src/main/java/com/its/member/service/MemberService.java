@@ -35,12 +35,19 @@ public class MemberService {
     }
 
     public MemberDTO findByid(Long id) {
-        MemberDTO result = memberRepository.findByid(id);
-        return result;
+//        MemberDTO result = memberRepository.findByid(id);
+//        return result;  // 아래랑 같은 문법_ 두 줄을 한 줄로
+        return memberRepository.findByid(id);
     }
 
-//    public MemberDTO delete(Long delete) {
-//        MemberDTO deleteResult = memberRepository.delete(delete);
-//        return deleteResult;
+    public void delete(Long id) {
+        memberRepository.delete(id);
+
+    }
+
+//    public int delete(int delete) {
+//        return memberRepository.delete(delete);
+////        int result = memberRepository.delete(delete);
+////        return result;
 //    }
 }

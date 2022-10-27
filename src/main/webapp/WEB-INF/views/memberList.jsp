@@ -30,7 +30,7 @@
             <th>나이</th>
             <th>핸드폰번호</th>
             <th>상세조회</th>
-    <%--        <th>삭제하기</th>--%>
+            <th>삭제하기</th>
         </tr>
         <c:forEach items="${memberList}" var="member">
             <tr>
@@ -45,12 +45,23 @@
                 <td>
                     <a href="/member?id=${member.id}">상세조회</a>
                 </td>
-    <%--            <td><a href="/delete">삭제</a></td>--%>
+                <td>
+                    <button class="btn btn-danger" onclick="deleteMember('${member.id}')">삭제</button>
+<%--                    <a href="/delete?id=${member.id}">삭제</a>                        --%>
+                </td>
             </tr>
+
+
         </c:forEach>
         <a href="/">홈으로 이동</a>
     </table>
 </div>
-
 </body>
+<script>
+    const deleteMember = (clickedId) => {
+        <%--console.log('${memberList}');--%>
+        <%--console.log("클릭한 id값: ", clickedId);--%>
+        location.href = "/delete?id="+clickedId;
+    }
+</script>
 </html>

@@ -9,17 +9,40 @@
 <html>
 <head>
     <title>memberDetail</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
-    <h2>상세조회결과</h2>
-    <h4>MemberDTO 객체: ${result}</h4>
-    <h5>번호: ${result.id}</h5>
-    <h5>이메일: ${result.memberEmail}</h5>
-    <h5>비밀번호: ${result.memberPassword}</h5>
-    <h5>이름: ${result.memberName}</h5>
-    <h5>나이: ${result.memberAge}</h5>
-    <h5>연락처: ${result.memberMobile}</h5>
+<div class="container">
+    <table class="table">
+<%--    상세조회결과--%>
+<%--    MemberDTO 객체: ${result}--%>
+    <tr>
+        <th>번호</th>
+        <td>${result.id}</td>
+    </tr>
+        <tr>
+            <th>이메일</th>
+            <td>${result.memberEmail}</td>
+        </tr>
+        <tr>
+            <th>비밀번호</th>
+            <td>${result.memberPassword}</td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td>${result.memberName}</td>
+        </tr>
+        <tr>
+            <th>나이</th>>
+            <td>${result.memberAge}</td>
+        </tr>
+        <tr>
+            <th>연락처</th>
+            <td>${result.memberMobile}</td>
+        </tr>
 
     <a href="/">홈으로 이동</a>
+    </table>
+</div>
 </body>
 </html>

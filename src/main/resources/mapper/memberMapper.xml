@@ -16,14 +16,20 @@
     <select id="memberList" resultType="member">
         select * from member_table;
     </select>
-    
+
+<!--    파라미터 타입은 크게 상관없음 -> 보내기만 하면 되니까 -->
     <select id="id" resultType="member" parameterType="Long">
         select * from member_table where id=#{id}
     </select>
 
+<!--    <delete id="delete" parameterType="Integer">-->
+<!--        delete from member_table where id=#{delete}-->
+<!--    </delete>-->
+
     <delete id="delete" parameterType="Long">
-        delete from member_table where id=#{delete}
+        delete from member_table where id=#{id}
     </delete>
+
 </mapper>
 
 
