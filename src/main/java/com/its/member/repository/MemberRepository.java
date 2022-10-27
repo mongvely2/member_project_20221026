@@ -28,7 +28,7 @@ public class MemberRepository {
         return sql.selectOne("Member.id", id);
     }
 
-    public MemberDTO delete(Long delete) {
-        return sql.delete("Member.delete", delete);
-    }
+//    public MemberDTO delete(Long delete) {
+////        return sql.delete("Member.delete", delete);
+//    }
 }

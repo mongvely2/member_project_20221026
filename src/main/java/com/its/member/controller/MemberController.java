@@ -60,13 +60,13 @@ public class MemberController {
         return "memberDetail";
     }
 
-    @GetMapping("/delete")
-    public String delete(@RequestParam("delete") Long delete, Model model) {
-        MemberDTO deleteResult = memberService.delete(delete);
-        model.addAttribute("result", deleteResult);
-        return "memberList";
-
-    }
+//    @GetMapping("/delete")
+//    public String delete(@RequestParam("delete") Long delete, Model model) {
+//        MemberDTO deleteResult = memberService.delete(delete);
+//        model.addAttribute("result", deleteResult);
+//        return "memberList";
+//
+//    }
 
 
 

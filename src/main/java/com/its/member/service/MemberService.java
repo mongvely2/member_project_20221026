@@ -34,8 +34,8 @@ public class MemberService {
         return result;
     }
 
-    public MemberDTO delete(Long delete) {
-        MemberDTO deleteResult = memberRepository.delete(delete);
-        return deleteResult;
-    }
+//    public MemberDTO delete(Long delete) {
+//        MemberDTO deleteResult = memberRepository.delete(delete);
+//        return deleteResult;
+//    }
 }

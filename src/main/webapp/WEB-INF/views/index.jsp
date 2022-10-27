@@ -9,10 +9,30 @@
 <html>
 <head>
     <title>index</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
-    <a href="/save">회원가입</a>
-    <a href="/login">로그인</a>
-    <a href="/members">회원목록</a>
+<a href="/save">회원가입</a>
+<a href="/login">로그인</a>
+<a href="/members">회원목록</a>
+
+<button class="btn btn-primary" onclick="saveFn()">회원가입</button>
+<button class="btn btn-danger" onclick="loginFn()">로그인</button>
+<button class="btn btn-dark" onclick="ListFn()">회원목록</button>
+
 </body>
+<script>
+    const saveFn = () => {
+        location.href = "/save";
+    }
+    const loginFn = () => {
+        location.href = "login";
+    }
+    const ListFn = () => {
+        location.href = "members";
+    }
+
+</script>
+
+
 </html>
