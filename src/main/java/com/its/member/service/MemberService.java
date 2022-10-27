@@ -21,6 +21,11 @@ public class MemberService {
         }
     }
 
+//    public boolean login(memberEmail, memberPassword) {
+//        MemberDTO member = memberRepository.login1(memberEmail, memberPassword);
+//        if
+//    }
+
     public MemberDTO login(MemberDTO memberDTO) {
         return memberRepository.login(memberDTO);
         }

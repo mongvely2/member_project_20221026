@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>memberLogin</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
+<div class="container">
     <h2>로그인</h2>
     <form action="/login" method="post">
         <input type="text" name="memberEmail" placeholder="이메일입력">
@@ -19,5 +21,6 @@
     </form>
 
     <a href="/">홈으로 이동</a>
+</div>
 </body>
 </html>
