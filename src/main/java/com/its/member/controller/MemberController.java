@@ -49,13 +49,16 @@ public class MemberController {
 
 //    HttpSession session 사용시 메서드에 추가해야함
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session) {
-        MemberDTO loginResult = memberService.login(memberDTO);
-        model.addAttribute("loginResult", loginResult);
-//        세션에 로그인한 사용자의 이메일을 저장
-        session.setAttribute("loginEmail", memberDTO.getMemberEmail());
-        model.addAttribute("modelEmail", memberDTO.getMemberEmail());
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model) {
+        boolean loginResult = memberService.login(memberDTO);
+        if (loginResult) {
+            session.setAttribute("loginEmail", memberDTO.getMemberEmail());
+            model.addAttribute("modelEmail", memberDTO.getMemberEmail());
             return "memberMain";
+        } else {
+            return "memberLogin";
+        }
+
     }
 
     @GetMapping("/members")
