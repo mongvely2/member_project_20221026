@@ -23,6 +23,7 @@
         age: <input type="text" name="memberAge" value="${member.memberAge}" class="form-control">
         <input type="button" value="수정" class="btn btn-warning" onclick="update()">
     </form>
+    <a class="btn btn-dark" href="/">홈으로 이동</a>
 </div>
 
 </body>

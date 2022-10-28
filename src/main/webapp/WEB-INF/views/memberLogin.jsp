@@ -20,7 +20,7 @@
         <input type="submit" value="로그인">
     </form>
 
-    <a href="/">홈으로 이동</a>
+    <a class="btn btn-dark" href="/">홈으로 이동</a>
 </div>
 </body>
 </html>

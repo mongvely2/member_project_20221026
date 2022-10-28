@@ -41,7 +41,7 @@
             <td>${result.memberMobile}</td>
         </tr>
 
-    <a href="/">홈으로 이동</a>
+    <a class="btn btn-dark" href="/">홈으로 이동</a>
     </table>
 </div>
 </body>

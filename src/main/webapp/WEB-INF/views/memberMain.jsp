@@ -21,7 +21,7 @@
     <button class="btn btn-danger" onclick="logout()">로그아웃</button>
 
 
-    <a href="/">index.jsp</a>
+    <<a class="btn btn-dark" href="/">홈으로 이동</a>
 
   </div>
 </body>

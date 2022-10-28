@@ -30,9 +30,10 @@
 <%--        form 태그에는 button 태그 함부로 사용하지 말 것, 페이지가 넘어감, input 타입으로 쓸 것--%>
 <%--        <button onclick="btn1Fn()">버튼가입</button>--%>
     </form>
+    <a class="btn btn-dark" href="/">홈으로 이동</a>
 </div>
 
-    <a href="/">홈으로 이동</a>
+
 </body>
 <script>
     const save = () => {
