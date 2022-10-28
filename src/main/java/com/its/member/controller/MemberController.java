@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -128,11 +125,71 @@ public class MemberController {
         return "index";
     }
 
+//    ajax
+
+    @GetMapping("/ajax-ex")
+    public String ajaxEx() {
+        return "ajaxEx";
+    }
+
+    @GetMapping("/ajax1")
+    public @ResponseBody String ajax1() {    // ajax 사용시 반드시 @ResponseBody 붙여줘야함, 그렇지 않으면 리턴.jsp로 찾아감
+        System.out.println("MemberController.ajax1");
+        return "ok";
+    }
+
+    @PostMapping("/ajax2")
+    public @ResponseBody String ajax2() {
+        System.out.println("MemberController.ajax2");
+        return "good";
+    }
+
+    @GetMapping("/ajax3")
+    public @ResponseBody String ajax3(@RequestParam("value1") String value1,
+                                      @RequestParam("value2") String value2) {
+        System.out.println("MemberController.ajax3");
+        System.out.println("value1 = " + value1 + ", value2 = " + value2);
+        return "vvv";
+    }
 
 
+    @PostMapping("/ajax4")
+    public @ResponseBody String ajax4(@RequestParam("value1") String value1,
+                                      @RequestParam("value2") String value2) {
+        System.out.println("MemberController.ajax4");
+        System.out.println("value1 = " + value1 + ", value2 = " + value2);
+        String value3 = "i am mong";
+        return value3 + "  welcome to codingworld";
+    }
 
+    @PostMapping("/ajax5")
+    public @ResponseBody MemberDTO ajax5(@RequestParam("value1") String value1,  // 리턴 타입: MemberDTO
+                                      @RequestParam("value2") String value2) {
+        System.out.println("MemberController.ajax5");
+        System.out.println("value1 = " + value1 + ", value2 = " + value2);
+        MemberDTO memberDTO = memberService.findByid(1L);
+        return memberDTO;
+    }
 
+    @PostMapping("/ajax6")
+    public @ResponseBody List<MemberDTO> ajax6(@RequestParam("value1") String value1,  // 리턴 타입: List<MemberDTO>
+                                         @RequestParam("value2") String value2) {
+        System.out.println("MemberController.ajax6");
+        System.out.println("value1 = " + value1 + ", value2 = " + value2);
+        List<MemberDTO> memberDTOList = memberService.memberList();
+        return memberDTOList;
+    }
 
+    @PostMapping("/duplicate-check")
+    public @ResponseBody String loginCheck(@RequestParam("insertEmail") String insertEmail) {
+        boolean result = memberService.loginCheck(insertEmail);
+        if (result) {
+            return "Ok";
+        } else {
+            return "No";
+        }
+
+    }
 
 
 }

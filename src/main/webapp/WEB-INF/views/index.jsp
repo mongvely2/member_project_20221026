@@ -18,10 +18,12 @@
 <%--<a href="/save">회원가입</a>--%>
 <%--<a href="/login">로그인</a>--%>
 <%--<a href="/members">회원목록</a>--%>
-<br>
+
 <button class="btn btn-primary" onclick="saveFn()">회원가입</button>
 <button class="btn btn-danger" onclick="loginFn()">로그인</button>
 <button class="btn btn-dark" onclick="ListFn()">회원목록</button>
+
+<button class="btn btn-success" onclick="ajaxEx()">연습</button>
 
 </body>
 <script>
@@ -33,6 +35,10 @@
     }
     const ListFn = () => {
         location.href = "members";
+    }
+
+    const ajaxEx = () => {
+        location.href = "/ajax-ex"
     }
 
 </script>

@@ -64,6 +64,15 @@ public class MemberService {
         }
     }
 
+    public boolean loginCheck(String insertEmail) {
+        MemberDTO memberDTO = MemberRepository.loginCheck(insertEmail);
+        if (memberDTO != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 //    public int delete(int delete) {
 //        return memberRepository.delete(delete);

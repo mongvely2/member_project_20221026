@@ -11,8 +11,7 @@ import java.util.List;
 @Repository
 public class MemberRepository {
     @Autowired
-    private SqlSessionTemplate sql;
-
+    private static SqlSessionTemplate sql;
     public int save(MemberDTO memberDTO) {
         return sql.insert("Member.save", memberDTO);
     }
@@ -46,6 +45,10 @@ public class MemberRepository {
 
     public int update(MemberDTO memberDTO) {
         return sql.update("Member.update", memberDTO);
+    }
+
+    public static MemberDTO loginCheck(String insertEmail) {
+        return sql.selectOne("Member.loginCheck", insertEmail);
     }
 
 

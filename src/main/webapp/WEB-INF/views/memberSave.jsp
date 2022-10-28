@@ -20,7 +20,8 @@
 <div class="container" id="save-form">
     <h2>회원가입 정보</h2>
     <form action="/save" method="post" name="saveForm">
-        <input type="text" name="memberEmail" placeholder="이메일입력" class="form-control"> <br>
+        <input type="text" name="memberEmail" onblur="emailDuplicateCheck()" placeholder="이메일입력" class="form-control"> <br>
+        <h6 id="emailCheck"></h6>
         <span id="email-input-check"></span>
         <input type="text" name="memberPassword" placeholder="비밀번호입력" class="form-control"><br>
         <input type="text" name="memberName" placeholder="이름입력" class="form-control"><br>
@@ -62,8 +63,27 @@
     //  name = saveForm 단을 실행하겠다 라는 문법 _form에 name이 saveForm
 
     }
-    // const btn1Fn = () => {
-    //   console.log("btn1Fn 호출");
-    // }
+
+    const emailDuplicateCheck = () => {
+        const insertEmail = document.getElementById("memberEmail").value;
+        const emailCheck = document.getElementById(emailCheck);
+
+        $.ajax({
+            type: "post",
+            url: "/duplicate-check",
+            data: {
+                insertEmail: insertEmail
+            },
+            dataTypes: "text",
+            success: function (Ok) {
+
+            },
+            error: function (No) {
+
+            }
+
+        });
+    }
+
 </script>
 </html>
