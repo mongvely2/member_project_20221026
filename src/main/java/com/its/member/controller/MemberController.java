@@ -47,6 +47,7 @@ public class MemberController {
 //        boolean loginResult = memberService.login(memberEmail, memberPassword);
 //    }
 
+//    HttpSession session 사용시 메서드에 추가해야함
     @PostMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session) {
         MemberDTO loginResult = memberService.login(memberDTO);
@@ -90,10 +91,41 @@ public class MemberController {
 
 //        2.redirect 방식을 이용하여 /members("memberList(findAll) 메서드 불러오기") 주소 요청
         return "redirect:/members";
+    }
 
+    @GetMapping ("/update")
+    public String updateForm(HttpSession session, Model model) {
+//        session 값을 가져오기
+//        getAttribute 리턴타입: abstract, abstract 타입보다 큰 타입은 없음으로 형변환 해줘야 함
+        String memberEmail = (String) session.getAttribute("loginEmail");
 
+//        memberEmail로 DB에서 해당 회원의 전체정보 조회
+        MemberDTO memberDTO = memberService.updateLogin(memberEmail);
+        model.addAttribute("member", memberDTO);
+
+        return "memberUpdate";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO) {
+        boolean result = memberService.update(memberDTO);
+        if (result) {
+//            로그인 회원의 memberDetail.jsp 를 띄우려면 /member 메서드를 가져와야함
+//
+            return "redirect:/member?id="+memberDTO.getId();
+        } else {
+            return "index";
+        }
 
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "index";
+    }
+
+
 
 
 

@@ -30,6 +30,18 @@
         delete from member_table where id=#{id}
     </delete>
 
+    <select id="memberEmail" resultType="member" parameterType="String">
+        select * from member_table where memberEmail = #{memberEmail}
+    </select>
+
+    <update id="update" parameterType="member">
+        update member_table set memberName=#{memberName}, memberAge=#{memberAge}, memberMobile=#{memberMobile} where id=#{id}
+    </update>
+
+
+
+
+
 </mapper>
 
 

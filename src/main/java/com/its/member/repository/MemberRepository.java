@@ -40,6 +40,15 @@ public class MemberRepository {
         sql.delete("Member.delete", id);
     }
 
+    public MemberDTO updateLogin(String memberEmail) {
+        return sql.selectOne("Member.memberEmail", memberEmail);
+    }
+
+    public int update(MemberDTO memberDTO) {
+        return sql.update("Member.update", memberDTO);
+    }
+
+
 //    public int delete(int delete) {
 //        return sql.delete("Member.delete", delete);
 //    }
