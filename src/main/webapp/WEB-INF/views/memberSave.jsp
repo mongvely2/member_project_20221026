@@ -10,6 +10,7 @@
 <head>
     <title>memberSave</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+    <script src="/resources/js/jquery.js"></script>
     <style>
         #save-form {
             width: 1000px;
@@ -20,8 +21,8 @@
 <div class="container" id="save-form">
     <h2>회원가입 정보</h2>
     <form action="/save" method="post" name="saveForm">
-        <input type="text" name="memberEmail" onblur="emailDuplicateCheck()" placeholder="이메일입력" class="form-control"> <br>
-        <h6 id="emailCheck"></h6>
+        <input type="text" name="memberEmail" id="memberEmail" onblur="emailDuplicateCheck()" placeholder="이메일입력" class="form-control"> <br>
+        <span id="email-dup-check"></span>
         <span id="email-input-check"></span>
         <input type="text" name="memberPassword" placeholder="비밀번호입력" class="form-control"><br>
         <input type="text" name="memberName" placeholder="이름입력" class="form-control"><br>
@@ -66,19 +67,30 @@
 
     const emailDuplicateCheck = () => {
         const insertEmail = document.getElementById("memberEmail").value;
-        const emailCheck = document.getElementById(emailCheck);
+        const checkResult = document.getElementById("email-dup-check");
+
+        console.log("입력한 이메일", insertEmail);
 
         $.ajax({
             type: "post",
             url: "/duplicate-check",
-            data: {
-                insertEmail: insertEmail
-            },
             dataTypes: "text",
-            success: function (Ok) {
-
+            data: {
+                inputEmail: insertEmail
             },
-            error: function (No) {
+
+            success: function (result) {
+                console.log("checkResult:" + result )
+                if(result == "ok") {
+                    checkResult.innerHTML = "사용할 수 있는 이메일 입니다";
+                    checkResult.style.color = "green";
+                } else {
+                    checkResult.innerHTML = "이미 사용중인 이메일 입니다";
+                    checkResult.style.color = "red";
+                }
+            },
+            error: function () {
+                console.log("실패")
 
             }
 

@@ -26,7 +26,7 @@
 
   const ajax1 = () => {
       console.log("ajax1 호출");
-      $.ajax({
+      $.ajax({     // <- jquery에서 제공하는 ajax 함수
          // ajax를 이용하여 /ajax1 이라는 주소로 get 요청
          type: "get",   // http request method type _ get/post
          url: "/ajax1",  // 요청하는 주소

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class MemberRepository {
     @Autowired
-    private static SqlSessionTemplate sql;
+    private SqlSessionTemplate sql;
     public int save(MemberDTO memberDTO) {
         return sql.insert("Member.save", memberDTO);
     }
@@ -47,9 +47,13 @@ public class MemberRepository {
         return sql.update("Member.update", memberDTO);
     }
 
-    public static MemberDTO loginCheck(String insertEmail) {
-        return sql.selectOne("Member.loginCheck", insertEmail);
+    public String emailDuplicateCheck(String insertEmail) {
+        return sql.selectOne("Member.duplicateCheck", insertEmail);
     }
+
+//    public static MemberDTO loginCheck(String insertEmail) {
+//        return sql.selectOne("Member.loginCheck", insertEmail);
+//    }
 
 
 //    public int delete(int delete) {

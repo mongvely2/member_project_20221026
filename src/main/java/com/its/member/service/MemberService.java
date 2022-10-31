@@ -64,14 +64,23 @@ public class MemberService {
         }
     }
 
-    public boolean loginCheck(String insertEmail) {
-        MemberDTO memberDTO = MemberRepository.loginCheck(insertEmail);
-        if (memberDTO != null) {
-            return true;
+    public String emailDuplicateCheck(String insertEmail) {
+        String checkResult = memberRepository.emailDuplicateCheck(insertEmail);
+        if (checkResult == null) {
+            return "ok";
         } else {
-            return false;
+            return "no";
         }
     }
+
+//    public boolean loginCheck(String insertEmail) {
+//        MemberDTO memberDTO = MemberRepository.loginCheck(insertEmail);
+//        if (memberDTO != null) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
 
 //    public int delete(int delete) {

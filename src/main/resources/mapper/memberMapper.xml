@@ -38,9 +38,13 @@
         update member_table set memberName=#{memberName}, memberAge=#{memberAge}, memberMobile=#{memberMobile} where id=#{id}
     </update>
 
-    <select id="loginCheck" resultType="member" parameterType="String">
-        select memberEmail from member_table where memberEmail = #{insertEmail}
+    <select id="duplicateCheck" parameterType="String" resultType="String">
+        select memberEmail from member_table where memberEmail=#{insertEmail}
     </select>
+
+<!--    <select id="loginCheck" resultType="member" parameterType="String">-->
+<!--        select memberEmail from member_table where memberEmail = #{insertEmail}-->
+<!--    </select>-->
 
 
 

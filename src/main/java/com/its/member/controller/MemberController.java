@@ -181,13 +181,16 @@ public class MemberController {
     }
 
     @PostMapping("/duplicate-check")
-    public @ResponseBody String loginCheck(@RequestParam("insertEmail") String insertEmail) {
-        boolean result = memberService.loginCheck(insertEmail);
-        if (result) {
-            return "Ok";
-        } else {
-            return "No";
-        }
+    public @ResponseBody String emailDuplicateCheck(@RequestParam("inputEmail") String insertEmail) {
+        System.out.println("insertEmail = " + insertEmail);
+        String checkResult = memberService.emailDuplicateCheck(insertEmail);
+        return checkResult;
+//        boolean result = memberService.loginCheck(insertEmail);
+//        if (result) {
+//            return "Ok";
+//        } else {
+//            return "No";
+//        }
 
     }
 
