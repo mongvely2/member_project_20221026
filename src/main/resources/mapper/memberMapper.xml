@@ -42,6 +42,10 @@
         select memberEmail from member_table where memberEmail=#{insertEmail}
     </select>
 
+<!--    <select id="detailMember" resultType="member" parameterType="Long">-->
+<!--        select * from member_table where id=#{id}-->
+<!--    </select>-->
+
 <!--    <select id="loginCheck" resultType="member" parameterType="String">-->
 <!--        select memberEmail from member_table where memberEmail = #{insertEmail}-->
 <!--    </select>-->

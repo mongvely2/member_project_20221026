@@ -5,6 +5,7 @@ import com.its.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Member;
 import java.util.List;
 
 @Service
@@ -72,6 +73,11 @@ public class MemberService {
             return "no";
         }
     }
+
+//    public MemberDTO detailMember(Long findId) {
+//        MemberDTO result = memberRepository.detailMember(findId);
+//        return result;
+//    }
 
 //    public boolean loginCheck(String insertEmail) {
 //        MemberDTO memberDTO = MemberRepository.loginCheck(insertEmail);

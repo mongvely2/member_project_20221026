@@ -14,8 +14,7 @@
 <body>
 <div class="container">
     <table class="table">
-<%--    상세조회결과--%>
-<%--    MemberDTO 객체: ${result}--%>
+
     <tr>
         <th>번호</th>
         <td>${result.id}</td>

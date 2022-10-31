@@ -51,6 +51,10 @@ public class MemberRepository {
         return sql.selectOne("Member.duplicateCheck", insertEmail);
     }
 
+//    public MemberDTO detailMember(Long findId) {
+//        return sql.selectOne("Member.detailMember", findId);
+//    }
+
 //    public static MemberDTO loginCheck(String insertEmail) {
 //        return sql.selectOne("Member.loginCheck", insertEmail);
 //    }

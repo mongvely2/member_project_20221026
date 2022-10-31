@@ -191,7 +191,14 @@ public class MemberController {
 //        } else {
 //            return "No";
 //        }
+    }
 
+    @GetMapping("/detail-ajax")
+    public @ResponseBody MemberDTO detailMember(@RequestParam("id") Long id) {
+        System.out.println("findId = " + id);
+//        MemberDTO memberDTO = memberService.detailMember(findId);
+//        return memberDTO;
+        return memberService.findByid(id);
     }
 
 

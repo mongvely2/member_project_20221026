@@ -10,6 +10,7 @@
 <head>
     <title>memberSave</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+
     <script src="/resources/js/jquery.js"></script>
     <style>
         #save-form {
@@ -68,6 +69,7 @@
     const emailDuplicateCheck = () => {
         const insertEmail = document.getElementById("memberEmail").value;
         const checkResult = document.getElementById("email-dup-check");
+
 
         console.log("입력한 이메일", insertEmail);
 
